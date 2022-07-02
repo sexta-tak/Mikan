@@ -1,0 +1,29 @@
+version: '3'
+services:
+  make_mikan:
+    build: .
+    container_name: 'mikan'
+    working_dir: '/root/'
+    environment:
+      - DISPLAY=$DISPLAY
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
+      - PULSE_SERVER=$PULSE_SERVER
+    restart: always
+    tty: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+      # - /etc/passwd:/etc/passwd:ro
+      # - /etc/group:/etc/group:ro
+      - ./src:/root/src
+      # - ./src/MikanLoaderPkg/:/root/edk2/
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    # cap_add:
+    #   - SYS_ADMIN
+    # security_opt:
+    #   - seccomp:unconfined
+    privileged: true
