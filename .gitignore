@@ -1,3 +1,5 @@
 /src/disk.img
 /src/edk2/**/.git
 /src/osbook/**/.git
+/src/edk2/.git
+/src/osbook/.git
