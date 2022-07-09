@@ -71,7 +71,6 @@ ENV LANG "ja_JP.UTF-8"
 
 COPY entrypoint.sh /root/
 COPY osbook.sh /root/
-COPY source.sh /root/
 COPY .vimrc /root/
 
 # ENTRYPOINT ["/root/entrypoint.sh"]
